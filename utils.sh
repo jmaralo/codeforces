@@ -20,7 +20,7 @@ new() {
     echo "Make sure to copy the example input and output"
 }
 
-test() {
+check() {
     if [ "$#" -ne 1]; then
         echo "Please provide problem id"
         return 1
@@ -47,4 +47,4 @@ test() {
 }
 
 export new
-export test
+export check
