@@ -21,28 +21,43 @@ new() {
 }
 
 check() {
-    if [ "$#" -ne 1]; then
+    if [ "$#" -ne 1 ]; then
         echo "Please provide problem id"
         return 1
     fi
 
+    prev_dir="$(pwd)"
     problem=$1
     letter=${problem:(-1)}
     number=${problem:0:(-1)}
 
-    set -e
-
     cd "$number/$letter"
+
+    if [ "$?" -ne 0 ]; then
+        return $?
+    fi
 
     g++ -std=c++17 "$letter.cpp" -o "$letter.out"
     ./"$letter.out" <"in" >"tmp"
+
+    if [ "$?" -ne 0 ]; then
+        echo "Compiler error, aborting"
+        cd "$prev_dir"
+        return $?
+    fi
 
     echo "Diff: (got | expected)"
 
     diff "tmp" "out"
 
+    if [ "$?" -ne 0 ]; then
+        cd "$prev_dir"
+        return $?
+    fi
+
     rm "tmp"
 
+    cd "$prev_dir"
     echo "Done!"
 }
 
