@@ -2,13 +2,12 @@
 
 using namespace std;
 
-typedef long long ll;
 
-#define TESTCASES true
 void solve(int tt) {
     // <-- Solution goes here -->//
 }
 
+#define TESTCASES true
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
