@@ -38,7 +38,6 @@ check() {
     fi
 
     g++ -std=c++17 "$letter.cpp" -o "$letter.out"
-    ./"$letter.out" <"in" >"tmp"
 
     if [ "$?" -ne 0 ]; then
         echo "Compiler error, aborting"
@@ -46,6 +45,7 @@ check() {
         return $?
     fi
 
+    ./"$letter.out" <"in" >"tmp"
     echo "Diff: (got | expected)"
 
     diff "tmp" "out"
