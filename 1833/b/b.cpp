@@ -2,30 +2,43 @@
 
 using namespace std;
 
-#define TESTCASES true
 void solve(int tt) {
-    int n, k;
-    cin >> n >> k;
+    size_t n;
+    cin >> n;
+    int k;
+    cin >> k;
 
-    vector<int> a(n);
-    for (int i = 0; i < n; i++) {
-        cin >> a[i];
+    vector<pair<int, size_t>> forecast(n);
+    int expected;
+    for (size_t i = 0; i < n; i++) {
+        cin >> expected;
+        forecast[i] = {expected, i};
     }
 
-    vector<int> b(n);
-    for (int i = 0; i < n; i++) {
-        cin >> b[i];
+    vector<int> actual(n);
+    for (size_t i = 0; i < n; i++) {
+        cin >> actual[i];
     }
 
-    vector<vector<bool>> valid(n, vector<bool>(n, false));
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            if (abs(a[i] - b[j]) <= k) valid[i][j] = true;
-        }
+    sort(forecast.begin(), forecast.end());
+    sort(actual.begin(), actual.end());
+
+    vector<int> answer(n);
+    for (size_t i = 0; i < n; i++) {
+        answer[forecast[i].second] = actual[i];
     }
+
+    for (size_t i = 0; i < n; i++) {
+        cout << answer[i] << " ";
+    }
+    cout << "\n";
 }
 
+#define TESTCASES true
 int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
     if (!TESTCASES) {
         solve(0);
         return 0;
