@@ -51,3 +51,10 @@ check $PROBLEM_ID
 ```
 
 This checks the problem against the example input and output provided in the `in` and `out` files respectively. To do this it first compiles the source file, then runs the output with the example input and dumps the result to a `tmp` file and in turn runs `diff` against the `out` and `tmp` file. If there are no differences the `tmp` file is deleted, otherwise it is keept so the user can check the actual output of the code.
+
+## Author
+
+Juan Martinez Alonso:
+
+* [GitHub](https://github.com/jmaralo)
+* [Codeforces](https://codeforces.com/profile/jmaralo)
