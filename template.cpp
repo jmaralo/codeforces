@@ -2,24 +2,38 @@
 
 using namespace std;
 
+typedef signed char byte;
+typedef unsigned char ubyte;
 
-void solve(int tt) {
+typedef unsigned short ushort;
+
+typedef unsigned int uint;
+
+typedef unsigned long ulong;
+typedef unsigned long long ull;
+typedef long long ll;
+
+#define TESTCASES true
+void solve(ull tt)
+{
     // <-- Solution goes here -->//
 }
 
-#define TESTCASES true
-int main() {
+int main()
+{
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    if (!TESTCASES) {
+    if (!TESTCASES)
+    {
         solve(0);
         return 0;
     }
 
-    int t;
+    ull t;
     cin >> t;
-    for (int i = 0; i < t; i++) {
+    for (ull i = 0; i < t; i++)
+    {
         solve(i + 1);
     }
     return 0;
