@@ -13,9 +13,19 @@ typedef unsigned long ulong;
 typedef unsigned long long ull;
 typedef long long ll;
 
-#define TESTCASES true
+#define TESTCASES false
 void solve(ull tt) {
-    // <-- Solution goes here -->//
+    int n;
+    cin >> n;
+
+    ull score{0};
+    for (int i{2}; i <= n; i++) {
+        ull a = n / i;
+        ull b = ((a * (a + 1)) / 2) - 1;
+        score += b * 4;
+    }
+
+    cout << score << "\n";
 }
 
 int main() {
